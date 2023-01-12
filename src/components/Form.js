@@ -57,10 +57,10 @@ const Form = (props) => {
           <h2 className="text-center">
             {formType === "login" ? "Login" : "Sign Up"}
           </h2>
-          <div class="mb-4">
+          <div className="mb-4">
             <label
-              class="block text-gray-700 text-sm font-bold mb-2"
-              for="email"
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="email"
             >
               Email
             </label>
@@ -73,10 +73,10 @@ const Form = (props) => {
               required
             />
           </div>
-          <div class="mb-6">
+          <div className="mb-6">
             <label
-              class="block text-gray-700 text-sm font-bold mb-2"
-              for="password"
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="password"
             >
               Password
             </label>
@@ -90,10 +90,10 @@ const Form = (props) => {
             />
           </div>
           {formType === "signup" && (
-            <div class="mb-6">
+            <div className="mb-6">
               <label
-                class="block text-gray-700 text-sm font-bold mb-2"
-                for="password"
+                className="block text-gray-700 text-sm font-bold mb-2"
+                htmlFor="password"
               >
                 Password
               </label>
