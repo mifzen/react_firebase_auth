@@ -26,39 +26,83 @@ const Form = (props) => {
   const [error, setError] = useState("");
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>{formType === "login" ? "Login" : "Sign Up"}</h2>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-      {formType === "signup" && (
-        <input type="password" placeholder="Confirm Password" required />
-      )}
-      <button type="submit">
-        {formType === "login" ? "Login" : "Sign Up"}
-      </button>
-      <div
-        onClick={() => setFormType(formType === "login" ? "signup" : "login")}
-      >
-        <button>
-          {formType === "login"
-            ? "Create an account"
-            : "Already have an account"}
-        </button>
+    <div className="flex flex-col items-center my-10">
+      <div className="w-full max-w-xs center">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        >
+          <h2 className="text-center">
+            {formType === "login" ? "Login" : "Sign Up"}
+          </h2>
+          <div class="mb-4">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="email"
+            >
+              Email
+            </label>
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div class="mb-6">
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2"
+              for="password"
+            >
+              Password
+            </label>
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          {formType === "signup" && (
+            <div class="mb-6">
+              <label
+                class="block text-gray-700 text-sm font-bold mb-2"
+                for="password"
+              >
+                Password
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                type="password"
+                placeholder="Confirm Password"
+                required
+              />
+            </div>
+          )}
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="submit"
+          >
+            {formType === "login" ? "Login" : "Sign Up"}
+          </button>
+          <div
+            className="text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-5 rounded focus:outline-none focus:shadow-outline"
+            onClick={() =>
+              setFormType(formType === "login" ? "signup" : "login")
+            }
+          >
+            <button>
+              {formType === "login" ? "SIGN UP NOW" : "Already have an account"}
+            </button>
+          </div>
+          {error && <div>{error}</div>}
+        </form>
       </div>
-      {error && <div>{error}</div>}
-    </form>
+    </div>
   );
 };
 
