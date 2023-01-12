@@ -26,11 +26,33 @@ const Form = (props) => {
   const [error, setError] = useState("");
 
   return (
-    <div className="flex flex-col items-center my-10">
+    <div className="flex flex-col items-center my-10 ">
       <div className="w-full max-w-xs center">
+        <div className="flex flex-row shadow-md bg-white py-5 rounded-t-lg">
+          <button
+            className={
+              formType === "signup"
+                ? "mx-auto bg-blue-200 bg-opacity-75 px-5 py-2 rounded-md"
+                : "mx-auto px-5"
+            }
+            onClick={() => setFormType("signup")}
+          >
+            Sign Up Now
+          </button>
+          <button
+            className={
+              formType === "login"
+                ? "mx-auto bg-blue-200 bg-opacity-75 px-5 py-2 rounded-md"
+                : "mx-auto px-5"
+            }
+            onClick={() => setFormType("login")}
+          >
+            Login Now
+          </button>
+        </div>
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+          className="flex flex-col bg-white shadow-md rounded-b-lg px-8 pt-6 pb-8 mb-4"
         >
           <h2 className="text-center">
             {formType === "login" ? "Login" : "Sign Up"}
@@ -89,16 +111,6 @@ const Form = (props) => {
           >
             {formType === "login" ? "Login" : "Sign Up"}
           </button>
-          <div
-            className="text-center bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-5 rounded focus:outline-none focus:shadow-outline"
-            onClick={() =>
-              setFormType(formType === "login" ? "signup" : "login")
-            }
-          >
-            <button>
-              {formType === "login" ? "SIGN UP NOW" : "Already have an account"}
-            </button>
-          </div>
           {error && <div>{error}</div>}
         </form>
       </div>
