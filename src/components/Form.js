@@ -3,6 +3,7 @@ import app from "../base";
 
 const Form = (props) => {
   const { changeStatus, updateEmail } = props;
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -32,31 +33,28 @@ const Form = (props) => {
           <button
             className={
               formType === "signup"
-                ? "mx-auto bg-blue-200 bg-opacity-75 px-5 py-2 rounded-md"
-                : "mx-auto px-5"
+                ? "mx-auto bg-blue-300 bg-opacity-75 px-5 py-2 rounded-md"
+                : "mx-auto px-5 hover:bg-blue-100 rounded-md"
             }
             onClick={() => setFormType("signup")}
           >
-            Sign Up Now
+            Sign Up
           </button>
           <button
             className={
               formType === "login"
-                ? "mx-auto bg-blue-200 bg-opacity-75 px-5 py-2 rounded-md"
-                : "mx-auto px-5"
+                ? "mx-auto bg-blue-300 bg-opacity-75 px-5 py-2 rounded-md"
+                : "mx-auto px-5 hover:bg-blue-100 rounded-md"
             }
             onClick={() => setFormType("login")}
           >
-            Login Now
+            Login
           </button>
         </div>
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col bg-white shadow-md rounded-b-lg px-8 pt-6 pb-8 mb-4"
+          className="flex flex-col bg-white shadow-md rounded-b-lg px-8 pb-8 mb-4"
         >
-          <h2 className="text-center">
-            {formType === "login" ? "Login" : "Sign Up"}
-          </h2>
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"

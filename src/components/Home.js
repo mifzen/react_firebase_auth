@@ -14,12 +14,26 @@ const Home = (props) => {
 
   return (
     <div>
-      <p>
-        hello <b>{email}</b>
-      </p>
-      <button onClick={logOut}>Logout</button>
-      <p>{value}</p>
-      <button onClick={handleFetch}>increment</button>
+      <div className="w-full flex flex-row align-middle items-center justify-center my-5">
+        <p className="mx-5">
+          hello <b>{email}</b>
+        </p>
+        <button
+          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          onClick={logOut}
+        >
+          Logout
+        </button>
+      </div>
+      <div className="w-full flex flex-col align-middle items-center justify-center my-auto">
+        <p className="text-3xl my-3">{value}</p>
+        <button
+          className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          onClick={handleFetch}
+        >
+          increment
+        </button>
+      </div>
     </div>
   );
 };
